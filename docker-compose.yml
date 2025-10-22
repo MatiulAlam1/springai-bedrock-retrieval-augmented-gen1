@@ -1,0 +1,14 @@
+services:
+  milvus:
+    image: milvusdb/milvus:latest
+    command: ["milvus", "run", "standalone"]
+    container_name: milvus
+    ports:
+      - "19530:19530"
+    environment:
+      - MILVUS_LOG_LEVEL=info
+    volumes:
+      - milvus_data:/var/lib/milvus
+
+volumes:
+  milvus_data:
